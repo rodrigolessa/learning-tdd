@@ -136,25 +136,6 @@ dotnet list reference
 dotnet test
 ```
 
-### Generate reports using ReportGenerator (Trxer)
-
-```shell
-cd core.learning.tdd.romanos.test
-```
-
-### Generate HTML report using Extent (deprecates ReportUnit)
-
-Created a report file from NUnit results.xml.
-
-```shell
-cd core.learning.tdd.romanos.test
-
-dotnet add package extent --version 0.0.3
-dotnet test
-
-nunit3-console bin\Debug\netcoreapp2.2\core.learning.tdd.romanos.test.dll
-```
-
 ### Running Code Coverage
 
 ### Create a pipeline on Git Actions
