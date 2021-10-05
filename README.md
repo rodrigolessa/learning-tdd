@@ -157,20 +157,12 @@ nunit3-console bin\Debug\netcoreapp2.2\core.learning.tdd.romanos.test.dll
 
 ### Running Code Coverage
 
-### Organizando os projetos
+### Create a pipeline on Git Actions
 
-Cria um arquivo de Solução que vai conter os projetos.
-```shell
-dotnet new sln
-dotnet sln core.learning.tdd.sln add core.learning.tdd.domain/core.learning.tdd.domain.csproj
-dotnet sln core.learning.tdd.sln add core.learning.tdd.romanos.test/core.learning.tdd.romanos.test.csproj
+### Design Patterns and Development Strategies
 
-dotnet sln list
-```
-
-### Create a pipeline with Powershell script
-
-### Create a pipeline on Azure DevOps platform
+DomainDrivenDesign: 
+Express your tests in the language of the end-user of the app.
 
 ### Extras
 
@@ -181,7 +173,7 @@ Criação do projeto de teste com linguagem funcional.
 dotnet new nunit -lang F# -n core.learning.tddFSharp.test
 ```
 
-### Implementar testes de API com Postman
+#### Implementar testes de integração para o projeto de API
 
 Criando testes automáticos de integração para as APIs com Postman.
 Criação de um projeto de interfaceamento web com verbos HTTP (raiz do diretório).
