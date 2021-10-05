@@ -5,19 +5,15 @@ This repository contains Hands on Test Driven Development (TDD) with Mock Object
 
 ## Table of Content
  - Prerequisites
- - Como executar o projeto
+ - How to run the project
  - Creating Dotnet test project with CLI
+ - Organizing the projects
  - Running tests
- - Generate reports using ReportGenerator (Trxer)
- - Running Code Coverage
- - Organizando os projetos
- - Create a pipeline with Powershell script
- - Create a pipeline on Azure DevOps platform
- - Implementar testes no paradigma funcional
- - Implementar testes de API com Postman
- - Creating especification test wirh Gauge
+ - Running code coverage
+ - Create a pipeline on Git Actions
  - Design Patterns and Development Strategies
- - Referências
+ - Extras
+ - References
 
 Para este projeto usaremos a ferramente de desenvolvimento .Net CLI.
 https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet?tabs=netcore21
@@ -59,7 +55,13 @@ Verificar se o template do nunit já está instalado.
 dotnet new nunit -l
 ```
 
-### Como executar o projeto
+### How to run the project
+
+Ao clonar o repositório é necessário recarregar as dependências dos projetos
+```shel
+dotnet restore
+dotnet build
+```
 
 ### Creating Dotnet test project with CLI
 
@@ -98,6 +100,17 @@ cd ..
 
 dotnet new classlib -n core.learning.tdd.domain -f netcoreapp2.2 -lang C#
 dotnet add core.learning.tdd.romanos.test/core.learning.tdd.romanos.test.csproj reference core.learning.tdd.domain/core.learning.tdd.domain.csproj
+```
+
+### Organizing the projects
+
+Cria um arquivo de Solução que vai conter os projetos.
+```shell
+dotnet new sln
+dotnet sln core.learning.tdd.sln add core.learning.tdd.domain/core.learning.tdd.domain.csproj
+dotnet sln core.learning.tdd.sln add core.learning.tdd.romanos.test/core.learning.tdd.romanos.test.csproj
+
+dotnet sln list
 ```
 
 ### Running tests
@@ -159,7 +172,9 @@ dotnet sln list
 
 ### Create a pipeline on Azure DevOps platform
 
-### Implementar testes no paradigma funcional
+### Extras
+
+#### Implementar testes no paradigma funcional
 
 Criação do projeto de teste com linguagem funcional.
 ```shell
@@ -194,49 +209,7 @@ net start w3svc
 
 Discoverability with Swagger.
 
-### Utilizando este repositório
-
-Ao clonar o repositório é necessário recarregar as dependências dos projetos
-```shel
-dotnet restore
-dotnet build
-```
-
-### Creating acceptance testing project with Gauge
-
-Reference - https://gauge.org/
-
-Installation - Run from PowerShell command with admin rights.
-```shel
-choco install gauge # installation
-```
-
-```shel
-mkdir core.learning.gauge
-cd    core.learning.gauge
-
-gauge init dotnet
-
-gauge run specs/
-```
-
-
-### Design Patterns and Development Strategies
-
-PageObjects: 
-A simple abstraction of the UI of your web app
-Best reference to https://martinfowler.com/bliki/PageObject.html
-
-AcceptanceTests: 
-Use coarse-grained UI tests to help structure development work.
-
-RegressionTests: 
-Collect the actions of multiple AcceptanceTests into one place for ease of maintenance.
-
-DomainDrivenDesign: 
-Express your tests in the language of the end-user of the app.
-
-### Referências
+### References
 
 Este projeto adota as boas práticas descritas no Livro:
 Test Driven Development - Teste e design no mundo real
